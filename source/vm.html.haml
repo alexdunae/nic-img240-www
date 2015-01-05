@@ -1,0 +1,116 @@
+---
+title: Setting up the Virtual Machine
+---
+.grid
+  .content
+
+    %h1 Getting setup with Ruby
+
+    %p Ruby can run on Mac, Windows, Linux, BSD and many more systems, but each one has its quirks and it's easy to waste a ton of time configuring things.
+
+    %p In an attempt to make things easier for this class we'll be using a virtual machine to run all the code you write.  The virtual machine will let you run all the Ruby code you write within a nicely-configured Ubuntu Linux environment.  It works the same on Mac or Windows.
+
+    %p All the computers in the lab already have this setup. These instructions are for your own computer.
+
+    %p (As an added benefit, you'll certainly end up logging into Linux computers as part of your future work. This will give you a chance to get familiar with the commands.)
+
+    %h2 The stuff you need first
+
+    %h4 Step 1
+
+    %p
+      Download and install
+      %a{href: 'https://www.virtualbox.org/wiki/Downloads'} VirtualBox
+      on your computer.
+
+
+    %h4 Step 2
+
+    %p
+      Download and install
+      %a{href: 'https://www.vagrantup.com/download-archive/v1.6.5.html'} Vagrant 1.6.5
+      on your computer.
+
+    %p (Vagrant 1.7 has a glitch on Windows right now, so we're using the previous
+    version)
+
+    %h4 Step 3
+
+    %p Install Git.
+
+    %ul
+      %li
+        On Windows, you'll want to get it from
+        %a{href: 'https://msysgit.github.io/'} https://msysgit.github.io/
+      %li
+        On Mac, you'll want to get it from
+        %a{href: 'http://git-scm.com/downloads'} http://git-scm.com/downloads
+
+    %h2 Time for the actual virtual machine
+
+    %p
+      Now clone
+      %a{href: 'https://github.com/alexdunae/rails-dev-box'} the Git repository
+      I setup with the scripts to setup the class virtual machine.
+
+    %p Open Terminal on your Mac, or Git Bash on Windows.  Then run:
+
+    %pre
+      git clone https://github.com/alexdunae/rails-dev-box.git
+
+    %p Once the repository has been cloned, change into the repository directory:
+
+    %pre
+      cd rails-dev-box
+
+    %p Now run the command to start building the virtual machine:
+
+    %pre
+      vagrant up
+
+    %p The first time you do this it will take a while since it has to download the entire operating system.  Afterwards it will be much faster.
+
+    %p Log in to your virtual machine:
+
+    %pre
+      vagrant ssh
+
+    %p
+      When you're done, type
+      %code exit
+      in the virtual machine and then run
+      %code vagrant halt
+      if you want to shut down the virtual machine.
+
+
+    %h2 Day to day
+
+    %p Whenever you want to work in the virtual machine, open your terminal and go to the `rails-dev-box` directory.
+
+    %ul
+      %li
+        Make sure the virtual machine is up to date:
+        %code git clone
+      %li
+        Start the virtual machine:
+        %code vagrant up
+      %li
+        Login to the virtual machine:
+        %code vagrant ssh
+      %li
+        Within the VM, switch to your working directory:
+        %code cd /vagrant/projects
+
+    %p
+      The
+      %code /vagrant/projects
+      directory on the VM is the same as where you cloned the
+      %code rails-dev-box
+      repository on your computer.  Run any terminal commands via the virtual machine terminal and edit any files using your favourite editor on your Windows or Mac PC.
+
+    %p Nice.
+
+    %p
+      Need help?  Email me:
+      %a{href: 'alex@dunae.ca'} alex@dunae.ca
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html lang="en" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html lang="en" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en-ca">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <title><%= h(current_page.data.title) + ' - ' + h(site_title) %></title>
+    <% if current_page.data.description %><meta name="description" content="<%= h(current_page.data.description) %>"><% end %>
+    <%= stylesheet_link_tag 'site' %>
+    <%= stylesheet_link_tag 'highlighting' %>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  </head>
+  <body class="<%= page_classes %>">
+    <div class="page" id="page">
+      <header class="site-header"><div class="grid"><div class="content"><a href="/">NIC IMG 240</a></div></div></header>
+      <main class="site-body" role="main" id="main">
+        <%= yield %>
+      </main>
+      <footer class="site-footer"><div class="grid"><div class="content"><a href="/">NIC IMG 240</a></div></div></footer>
+    </div>
+  </body>
+</html>

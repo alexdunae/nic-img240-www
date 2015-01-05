@@ -1,0 +1,52 @@
+body {
+  min-width: 320px;
+  margin: 0;
+  color: #333;;
+  background: #fff;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.table {
+  border: 1px solid #ccc;
+  tr { border-bottom: 1px solid #ccc; }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    color: #4a4a4a;
+    padding: 0.5em 1em 0.5em 0.5em;
+  }
+}
+
+p, li {
+  code {
+    padding: 0.25em 0.5em;
+    font-size: 14px;
+    background: #eaeaea;
+  }
+}
+
+pre {
+  padding: 1em;
+  font-size: 13px;
+  line-height: 1;
+}
+
+ul, ol {
+  padding-left: 1.5em;
+}
+
+li { margin: 0.5em 0; }
+
+a {
+  color: #333;
+  text-decoration: underline;
+}
+
+h4 + p { margin-top: -1em; }
+
+.titlized-list {
+  p, .highlight { margin-left: 1em; }
+}
+
+
