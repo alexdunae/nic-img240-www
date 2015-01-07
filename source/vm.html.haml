@@ -66,7 +66,7 @@ title: Setting up the Virtual Machine
     %p Now run the command to start building the virtual machine:
 
     %pre
-      vagrant up
+      vagrant up --provision
 
     %p The first time you do this it will take a while since it has to download the entire operating system.  Afterwards it will be much faster.
 
@@ -93,7 +93,7 @@ title: Setting up the Virtual Machine
         %code git clone
       %li
         Start the virtual machine:
-        %code vagrant up
+        %code vagrant up --provision
       %li
         Login to the virtual machine:
         %code vagrant ssh
