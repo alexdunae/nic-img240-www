@@ -1,0 +1,69 @@
+---
+title: Creating a Rails Project
+---
+.grid
+  .content
+    %h1 Creating a new Rails project
+
+    %p Here are the steps to create a new Rails project.  All of the commands are typed through Git Bash (on Windows) or Terminal (on Mac).
+
+
+    %h3 Virtual Machine
+
+    %p
+      Start up your virtual machine as usual:
+      = link_to '(instructions)', 'vm.html'
+
+
+    %h3 Change to your <code>projects</code> directory
+
+    %p From the Vagrant command line, type;
+
+    %pre cd /vagrant/projects
+
+    %h3 Create a new Rails project
+
+    %p Now type:
+
+    %pre rails new your_project_name
+
+    %h3 Change into the new directory
+
+    %p Type:
+
+    %pre cd your_project_name
+
+    %h3 Create the database
+
+    %p Type the following to get Rails to create a blank database
+
+    %pre bundle exec rake db:create
+
+    %h3 Start the Rails server
+
+    %p Type:
+
+    %pre bundle exec rails server -b 0.0.0.0
+
+    %h3 Check it works
+
+    %p
+      In your web browser, go to
+      = link_to 'http://localhost:3000/', 'http://localhost:3000/'
+
+    %h3 Stop the Rails server
+
+    %p When you are done your work, press <code>CTRL C</code> to stop the Rails server.
+
+
+    %br
+    %br
+    %br
+    %br
+    %br
+    %br
+
+    %p
+      Need help?  Email me:
+      %a{href: 'alex@dunae.ca'} alex@dunae.ca
+
