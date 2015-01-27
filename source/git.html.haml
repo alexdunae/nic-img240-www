@@ -1,0 +1,54 @@
+---
+title: Git basics
+---
+.grid
+  .content
+    %h1 Git basics
+
+    %h3 Set your email, username and password
+
+    %pre git config --global user.name "Your Name"
+    %pre git config --global user.email "you@example.com"
+
+
+    %p For all the following commands, make sure you are in the directory where you want to create the repository.
+
+    %h3 Create a new git repository
+
+    %pre git init
+
+    %h3 Add a single file to the staging area
+
+    %pre git add FILENAME
+
+    %h3 Add all files to the staging area
+
+    %pre git add .
+
+    %h3 Commit the files in the staging area
+
+    %pre git commit -m "Your message goes here"
+
+    %h3 Push your commits to Github
+
+    %pre git push origin master
+
+
+    %h3 Pull any commits from Github
+
+    %pre git pull
+
+    %br
+    %br
+    %p
+      You might also find this
+      = link_to 'git cheatsheet from Github', 'https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf'
+      useful.
+
+    %br
+    %br
+
+    %p
+      Need help?  Email me:
+      %a{href: 'alex@dunae.ca'} alex@dunae.ca
+
