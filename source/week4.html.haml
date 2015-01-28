@@ -5,24 +5,27 @@ title: Week 4
   .content
     %h1 Week 4
 
+    %h2 Assignment: create a poetry website
 
-    %h2 Assignment: create a blog
+    %p In this assignment you'll create your first web application.  It will list a collection of poems, and users will be able to click through to view the poem's text.
 
     %h3 Setup
 
-    %p Create a new Rails project called <code>blog</code>.  Change to the new <code>blog</code> directory by typing <code>cd blog</code>.
+    %p Create a new Rails project called <code>poetry</code>.  Change to the new <code>poetry</code> directory by typing <code>cd poetry</code>.
 
-    %p Start (init) a new git repository for the blog, add all the new blog files and commit everything so far.
+    %p Start (init) a new git repository for the poetry, add all the new files and commit everything so far.
 
-    %h3 Create the post model
+    %h3 Create the Poem model
 
     %p Create the database with <code>bin/rake db:create</code>
 
-    %p Generate a model called ‘post’. In its migration, add three fields:
+    %p Generate a model called <code>poem</code>. In its migration, add these fields:
 
     %ul
       %li title (string)
+      %li author (string)
       %li body (text)
+      %li source (string)
       %li published (boolean)
 
     %p Run the migration (<code>bin/rake db:migrate</code>)
@@ -31,35 +34,47 @@ title: Week 4
 
     %h3 Add demo data
 
-    %p Copy contents of seeds file into <code>db/seeds.rb</code>. Run <code>bin/rake db:seed</code> to load the data.
+    %p
+      Copy the contents of
+      = link_to 'my demo data file', 'https://gist.github.com/alexdunae/e81f7ce867fd1af4c2c1'
+      into <code>db/seeds.rb</code> (you can delete everything else that is there). Run <code>bin/rake db:seed</code> to load the demo poems into your app.
 
-    %p Use <code>bin/rails console</code> and make sure your <code>Post</code> model can access the database (e.g. <code>Post.all</code>, <code>Post.count</code>)
+    %p Use <code>bin/rails console</code> and make sure your <code>Poem</code> model can has some poems stored in the database (e.g. <code>Poem.all</code>, <code>Poem.count</code>, <code>Poem.first</code>)
 
     %p Commit your changes with git.
 
-    %h3 Create the posts controller
+    %h3 Create the Poems controller
 
-    %p Generate a controller called ‘posts’ with two methods: <code>index</code> and <code>show</code>. Create the appropriate routes in the <code>routes</code> file.
+    %p Generate a <code>Poems</code> controller. Add two methods: <code>index</code> and <code>show</code>. Create the appropriate routes in the <code>routes</code> file.  (You can check that the routes are working with <code>bin/rake routes</code>.)
 
-    %p The <code>index</code> method should set an instance variable called <code>@posts</code> that contains all the <b>published</b> posts (where published is <code>true</code>).
+    %p The <code>index</code> method should set an instance variable called <code>@poems</code> that contains all the <b>published</b> posts. You'll need to use one of the model query methods to only return poems where published is <code>true</code> (see the resources linked below).
 
-    %p The <code>show</code> method should set an instance variable called <code>@post</code> that looks up a single post with <code>params[:id]</code>.
-
+    %p The <code>show</code> method should set an instance variable called <code>@poem</code> that looks up a single poem with <code>params[:id]</code>.
 
     %h3 Create the matching HTML templates
 
+    %p <code>app/views/poems/index.html.erb</code> should loop through each poem in <code>@poems</code>.  It should print out each poem's title and author, and link to the poem's page on the site you're building.
 
-    %p <code>app/views/posts/index.html.erb</code> should loop through each post in <code>@posts</code>.  It should print out each post's title and link to to each post.
+    %p
+      <code>app/views/poems/show.html.erb</code> should print out the specified poem's title, author and text. It should also link to the poem's <code>source</code> link.
 
-    %p app/views/posts/show.html.erb should print out the specified post's title and body. It should also link back to the index page.
-
+    %p
+      The <code>show</code> view template should also link back to the index page.  When you print out the body of the poem, use the
+      = link_to 'simple_format', 'http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#method-i-simple_format'
+      method to add <code>BR</code> tags.
 
     %p Commit your changes with git. Then push your changes to Github (<code>git push origin master</code>).
 
+    %h3 Bonus: add a bit of CSS
+    %p
+      Feel free to add some CSS so things aren't quite so grim looking. You can add CSS to <code>app/assets/stylesheets/application.css</code>
+      = link_to '(something like this)', 'https://github.com/alexdunae/img240-blog/blob/master/app/assets/stylesheets/application.css'
+      if you'd like.
+
+    %h3 Submit your work
     %p
       Email me a link to your repository on Github:
       %a{href: 'mailto:alex@dunae.ca'} alex@dunae.ca
-
 
 
     %br
@@ -67,11 +82,16 @@ title: Week 4
 
     %p= link_to 'IMG 240: Git basics', '/git.html'
     %p= link_to 'IMG 240: Creating a Rails application', '/rails.html'
+    %p= link_to 'IMG 240: Blog Rails application', 'https://github.com/alexdunae/img240-blog'
+    %p= link_to 'Poems for your seeds.rb file', 'https://gist.github.com/alexdunae/e81f7ce867fd1af4c2c1'
     %p
       = link_to 'Rails Command Line Reference', 'http://guides.rubyonrails.org/command_line.html'
       (generator commands)
     %p
       = link_to 'Rails ActiveRecord Querying Reference', 'http://guides.rubyonrails.org/active_record_querying.html'
       (different methods for querying your model)
+    %p
+      = link_to 'Rails Routing Reference', 'http://guides.rubyonrails.org/routing.html'
+      (how to setup your routes file)
 
 
