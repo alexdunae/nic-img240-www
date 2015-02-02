@@ -1,0 +1,89 @@
+---
+title: Week 5
+---
+.grid
+  .content
+    %h1 Week 5
+
+
+    %h3 Week 5 Assignment
+
+    %p Create a new Rails app
+
+
+
+
+
+
+
+    %h3 Submit your work
+    %p
+      Email me a link to your repository on Github:
+      %a{href: 'mailto:alex@dunae.ca'} alex@dunae.ca
+
+
+    %br
+    %h3 Resources
+
+    %p= link_to 'IMG 240: Git basics', '/git.html'
+    %p= link_to 'IMG 240: Creating a Rails application', '/rails.html'
+
+    %p
+      = link_to 'Ruby Enumerable', 'http://ruby-doc.org/core-2.2.0/Enumerable.html'
+      (these are methods used by Array and Hash –
+      = link_to 'here’s a pretty good collections tutorial', 'http://www.sitepoint.com/series/a-guide-to-ruby-collections/'
+      that might be useful)
+
+    %br
+    %br
+    %h3 ActiveRecord Resources
+
+    %aside.sidebar
+      - methods = %w(new create create! save save! all find find_by where order limit update update_all destroy has_one has_many belongs_to)
+      %p
+        You'll need to know what the following ActiveRecord methods do:
+        - methods.each do |m|
+          %li
+            %code= m
+
+    %p
+      = link_to 'ActiveRecord Basics', 'http://guides.rubyonrails.org/active_record_basics.html'
+      (different methods for adding/updating/deleting records, especially part 5)
+
+    %p
+      = link_to 'ActiveRecord Querying', 'http://guides.rubyonrails.org/active_record_querying.html'
+      (different methods for querying your model, include part 14)
+
+    %p
+      = link_to 'ActiveRecord Associations', 'http://guides.rubyonrails.org/association_basics.html'
+      (part 2.7 is important, focus on <code>belongs_to</code>, <code>has_one</code>, <code>has_many</code> for now)
+
+    %p
+      = link_to 'ActiveRecord Collection Methods', 'http://api.rubyonrails.org/classes/ActiveRecord/Associations/ClassMethods.html'
+      (an explanation of the methods you get after creating an association – not the easiest to read, but worth understanding)
+
+    %br
+    %h3 General Rails Resources
+
+    %p
+      = link_to 'Rails Command Line Reference', 'http://guides.rubyonrails.org/command_line.html'
+      (generator commands)
+    %p
+      = link_to 'Rails Routing Reference', 'http://guides.rubyonrails.org/routing.html'
+      (how to setup your routes file)
+    %p
+      = link_to 'Rails ActionView Helpers', 'http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html'
+      (explore UrlHelper, TextHelper, NumberHelper and anything else that catches your eye - you can use any of these functions in your HTML template files)
+
+    %br
+    %h3 Reading for next week
+
+    %p
+      = link_to 'Getting Started with Rails, Chapter 5', 'http://guides.rubyonrails.org/getting_started.html#getting-up-and-running'
+    %p
+      = link_to 'Rails Controllers (parts 1 through 4)', 'http://guides.rubyonrails.org/action_controller_overview.html'
+
+
+    %h3 More advanced resources
+
+    %p= link_to 'Blog Post: ActiveRecord Scopes vs. Class Methods', 'http://blog.plataformatec.com.br/2013/02/active-record-scopes-vs-class-methods/'
