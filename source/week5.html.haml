@@ -5,20 +5,76 @@ title: Week 5
   .content
     %h1 Week 5
 
+    %p= link_to 'Solar System seeds.rb', 'https://gist.github.com/alexdunae/d90786ef3034aec0510b'
 
     %h3 Week 5 Assignment
 
-    %p Create a new Rails app
+    %ol
+      %li Create a new Rails app called <code>extinctions</code>
+
+      %li Initialize a git repository (in the <code>extinctions</code>) directory and commit all the files (a good commit message would be something like "Setup Rails project")
+
+      %li
+        Generate a model called <code>AnimalClass</code> with the following fields in its migration:
+        %ul
+          %li name (string)
+
+      %li
+        Generate a model called <code>Animal</code> with the following fields in its migration:
+        %ul
+          %li animal_class (references)
+          %li name (string)
+          %li range (string)
+          %li extinction_date (integer)
+
+      %li
+        Generate a model called <code>CommonName</code> with the following fields in its migration:
+        %ul
+          %li animal (references)
+          %li name (string)
+
+      %li
+        Add the associations to the files in the <code>app/models</code> directory (both <code>belongs_to</code> and <code>has_many</code>)
+        %ul
+          %li AnimalClass has many Animals, Animals have many CommonNames
+
+      %li Add your files and commit with git (a good commit message would be something like "Added models")
+
+      %li
+        Run the migrations
+        %br
+        (If you get messed up at this point you can clear everything in the database with <code>bin/rake db:drop db:create db:migrate</code>)
+
+      %li
+        Copy in seed data in <code>db/seeds.rb</code> and load the seeds (<code>bin/rake db:seed</code>)
 
 
 
+      %li
+        Generate an <code>AnimalClasses</code> controller and add it to your <code>routes.rb</code> file
+        %ul
+          %li Add an <code>index</code> method that retrieves the list of <code>AnimalClass</code> records
+          %li Add an <code>index</code> view that lists each <code>AnimalClass</code>, along with the number of animals that are related (e.g. "Mammalia (10 animals)")
+          %li Add a <code>show</code> method and view
+          %li The <code>show</code> view should print out the <code>AnimalClass</code> name at the top of the page, then links to each animal in that AnimalClass.  These links should point to the <code>AnimalsController show </code> route
 
 
+      %li
+        Generate an <code>Animals</code> controller and add it to your <code>routes.rb</code> file
+        %ul
+          %li Add a <code>show</code> method and view file to display an individual animal
+          %li On the animal's page: list the animal's common names (if any), link to its image (if any), and link to the source URL
+
+      %li Add your files and commit with git (a good commit message would be something like "Added controllers and views")
+
+
+    %br
+    %br
 
 
     %h3 Submit your work
     %p
-      Email me a link to your repository on Github:
+      When you are done, push your work to Github. Then email me a link to your repository on Github:
       %a{href: 'mailto:alex@dunae.ca'} alex@dunae.ca
 
 
