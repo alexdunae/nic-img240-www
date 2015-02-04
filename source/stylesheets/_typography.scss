@@ -50,5 +50,9 @@ h4 + p { margin-top: -1em; }
 }
 
 .sidebar {
-  float: right; width: 33%; margin: -1em 0 1em 1em; background: #eaeaea; padding: 0.5em 1.5em;
+  float: right; width: 33%; margin: 0 0 2em 2em; background: #eaeaea; padding: 0.5em 1.5em;
+
+  li {
+    margin: 0;
+  }
 }

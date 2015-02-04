@@ -3,22 +3,40 @@ title: Week 5
 ---
 .grid
   .content
-    %h1 Week 5
+    %h1 Week 5 - Working with data in Rails
 
     %p= link_to 'Solar System seeds.rb', 'https://gist.github.com/alexdunae/d90786ef3034aec0510b'
-
-
+    %br
 
     %h3 Week 5 Assignment #1
 
     %p This one is easy.  You just have to email me about how things are going for you in the class.  Questions to answer:
     %ul
       %li How is the class for you?
-      %li What are the most useful parts?
-      %li
+      %li What are the most useful parts - take home assignments, code walkthroughs?
+      %li Is there anything you'd like to have more of, or less of, or none-at-all of?
+
+    %br
+
+    %h3 Week 5 Assignment #2
+
+    %p
+      = link_to 'Click through', '/week5-extinctions.html'
+      for all the details.
 
 
     %br
+    %br
+
+    %aside.sidebar
+      - methods = %w(new create create! save save! all find find_by where order limit update update_all destroy has_one has_many belongs_to)
+      %p
+        You'll need to know what the following ActiveRecord methods do:
+        - methods.each do |m|
+          %li
+            %code= m
+
+
     %h3 Resources
 
     %p= link_to 'IMG 240: Git basics', '/git.html'
@@ -34,13 +52,6 @@ title: Week 5
     %br
     %h3 ActiveRecord Resources
 
-    %aside.sidebar
-      - methods = %w(new create create! save save! all find find_by where order limit update update_all destroy has_one has_many belongs_to)
-      %p
-        You'll need to know what the following ActiveRecord methods do:
-        - methods.each do |m|
-          %li
-            %code= m
 
     %p
       = link_to 'ActiveRecord Basics', 'http://guides.rubyonrails.org/active_record_basics.html'
@@ -59,6 +70,7 @@ title: Week 5
       (an explanation of the methods you get after creating an association – not the easiest to read, but worth understanding)
 
     %br
+    %br
     %h3 General Rails Resources
 
     %p
@@ -71,15 +83,14 @@ title: Week 5
       = link_to 'Rails ActionView Helpers', 'http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html'
       (explore UrlHelper, TextHelper, NumberHelper and anything else that catches your eye - you can use any of these functions in your HTML template files)
 
+
     %br
-    %h3 Reading for next week
+    %br
+    %h3 Want more to learn?
 
     %p
-      = link_to 'Getting Started with Rails, Chapter 5', 'http://guides.rubyonrails.org/getting_started.html#getting-up-and-running'
+      = link_to 'This video by Sandi Metz', 'https://www.youtube.com/watch?v=8bZh5LMaSmE'
+      is fantastic for learning about organizing code.
     %p
-      = link_to 'Rails Controllers (parts 1 through 4)', 'http://guides.rubyonrails.org/action_controller_overview.html'
-
-
-    %h3 More advanced resources
-
-    %p= link_to 'Blog Post: ActiveRecord Scopes vs. Class Methods', 'http://blog.plataformatec.com.br/2013/02/active-record-scopes-vs-class-methods/'
+      = link_to 'Seven ways to decompose fat ActiveRecord models', 'http://blog.codeclimate.com/blog/2012/10/17/7-ways-to-decompose-fat-activerecord-models/'
+      is an interesting look at what happens when models get large (lots of methods) in Rails, and what can be done about it.

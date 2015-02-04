@@ -5,7 +5,23 @@ title: Week 5 "Extinctions" Assignment
   .content
     %h1 Week 5 "Extinctions" Assignment
 
-    %p= link_to 'Solar System seeds.rb', 'https://gist.github.com/alexdunae/d90786ef3034aec0510b'
+    %p
+      We've got an uplifting project this week, web app scientists :)
+      You'll be creating a database of animals from North and South America that
+      went exctinct during the
+      = link_to 'holecene extinction', 'http://en.wikipedia.org/wiki/Holocene_extinction'
+      (past 12,000 years to present).
+
+    %p
+      = link_to 'Extinctions: seeds.rb', 'https://gist.github.com/alexdunae/5b55ec9ddb46c009ac34'
+      (save to <code>db/seeds.rb</code>)
+
+    %p
+      = link_to 'Extinctions: holocene-americas.csv', 'https://gist.github.com/alexdunae/478dc80b2dab950a8b73'
+      (save to <code>db/Extinctions holocene-americas.csv</code>)
+
+    %br
+    %br
 
     %h3 Setting up the data
 
@@ -28,7 +44,7 @@ title: Week 5 "Extinctions" Assignment
           %li extinction_date (integer)
 
       %li
-        Add a <code>recent?</code> instance method to the <code>Animal</code> model (class).  It should return true if <code>extinction_date</code> is after 1900, and false otherwise.
+        Add a <code>recent?</code> instance method to the <code>Animal</code> model (class).  It should return <code>true</code> if <code>extinction_date</code> is after 1900, and <code>false</code> otherwise.
 
       %li
         Generate a model called <code>CommonName</code> with the following fields in its migration:
@@ -49,7 +65,10 @@ title: Week 5 "Extinctions" Assignment
         (If you get messed up at this point you can clear everything in the database with <code>bin/rake db:drop db:create db:migrate</code>)
 
       %li
-        Copy in seed data in <code>db/seeds.rb</code> and load the seeds (<code>bin/rake db:seed</code>)
+        Copy in seed data in <code>db/seeds.rb</code> and <code>db/holecene-americas.csv</code> (linked above) and load the seeds (<code>bin/rake db:seed</code>)
+
+
+      %li Add your files and commit with git (a good commit message would be something like "Added seed data")
 
     %br
     %h3 Setting up the <code>Classifications</code> controller and views
@@ -59,14 +78,23 @@ title: Week 5 "Extinctions" Assignment
 
         %ul
           %li Add an <code>index</code> method that retrieves the list of <code>Classification</code> records
-          %li Add an <code>index</code> view that lists each <code>Classification</code>, along with the number of animals that are related (e.g. "Mammalia (10 animals)")
+          %li
+            Add an <code>index</code> view that displays:
+            %ul
+              %li each <code>Classification</code> name
+              %li with the number of animals that are included (e.g. "Mammalia (10 animals)")
+              %li a link to the <code>ClassificationsController#show</code> method
+
           %li Add a <code>show</code> method and view
           %li
             The <code>show</code> view should display
             %ul
-              %li the <code>Classification</code> name at the top of the page
-              %li links to each animal – these links should point to the <code>AnimalsController show </code> route
-              %li the animals should be sorted by exctinction date, oldest to newest
+              %li the current <code>Classification</code> name at the top of the page
+              %li links to each animal – these links should point to the <code>AnimalsController#show</code> route
+              %li the animals should be sorted by exctinction date, oldest to newest (do this in the controller)
+              %li a picture of each animal (but only if it has one) – you'll want to use the <code>image_tag</code> method
+              %li whether the extinction was recent (use your <code>recent?</code> method)
+
       %li Add a <code>root</code> route that points to the <code>Classifications</code> index view
 
       %li Add your files and commit with git (a good commit message would be something like "Added Classifications controller and views")
@@ -85,9 +113,21 @@ title: Week 5 "Extinctions" Assignment
               %li the animal's scientific name
               %li the animal's common names (if any)
               %li display its image (but only if it has one) – you'll want to use the <code>image_tag</code> method
+              %li whether the extinction was recent (use your <code>recent?</code> method)
               %li link to the source URL
 
       %li Add your files and commit with git (a good commit message would be something like "Added Animals controller and views")
+
+
+
+    %br
+    %h3 Optional: nicer URLs
+
+    %ol
+      %li Figure out what Rails' <code>to_param</code> method does an use it to include record names in your URLs
+      %li Read up on nested routes and figure out how to nest the <code>:animals</code> resource under the <code>:classifications</code> resource
+
+    %p If you do both of these things, you should be able to have URLs like <code>/classifications/1-mammalia/animals/123-bison-priscus</code>
 
 
     %br
