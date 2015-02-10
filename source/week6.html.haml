@@ -1,0 +1,77 @@
+---
+title: Week 6
+---
+.grid
+  .content
+    %h1 Week 6 - Working with controlelrs and views in Rails
+
+    %br
+
+    %h3 Week 6 Assignment: Personal Library
+
+    %p
+      = link_to 'Click through', '/week6-library.html'
+      for all the details.
+
+
+    %br
+    %br
+
+    %aside.sidebar
+      - methods = %w(new create create! save save! all find find_by where order limit update update_all destroy has_one has_many belongs_to)
+      %p
+        You'll need to know what the following ActiveRecord methods do:
+        - methods.each do |m|
+          %li
+            %code= m
+
+    %br
+    %br
+    %h3 ActionView Forms Resource
+
+
+    %p
+      = link_to 'ActionView::Helpers::FormHelper docs', 'http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html'
+
+    %p
+      = link_to 'ActionView::Helpers::FormOptionsHelper docs', 'http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html'
+      (for creating the select box -- use either <code>collection_select</code> or <code>select</code>)
+
+    %p
+      = link_to 'Rails Guide: Form Helpers', 'http://guides.rubyonrails.org/form_helpers.html'
+      (general overview -- note that we want to use <code>form_for</code> and not <code>form_tag</code>)
+
+
+
+
+    %br
+    %br
+    %h3 ActiveRecord Resources
+
+    %p
+      = link_to 'ActiveRecord Validations', 'http://guides.rubyonrails.org/active_record_validations.html'
+      (ways to make sure data is well-formed)
+
+    %p
+      = link_to 'ActiveRecord Basics', 'http://guides.rubyonrails.org/active_record_basics.html'
+      (different methods for adding/updating/deleting records, especially part 5)
+
+    %p
+      = link_to 'ActiveRecord Associations', 'http://guides.rubyonrails.org/association_basics.html'
+      (part 2.7 is important, focus on <code>belongs_to</code>, <code>has_one</code>, <code>has_many</code> for now)
+
+
+    %br
+    %br
+    %h3 General Rails Resources
+
+    %p
+      = link_to 'Rails Command Line Reference', 'http://guides.rubyonrails.org/command_line.html'
+      (generator commands)
+    %p
+      = link_to 'Rails Routing Reference', 'http://guides.rubyonrails.org/routing.html'
+      (how to setup your routes file)
+    %p
+      = link_to 'Rails ActionView Helpers', 'http://api.rubyonrails.org/classes/ActionView/Helpers/UrlHelper.html'
+      (explore UrlHelper, TextHelper, NumberHelper and anything else that catches your eye - you can use any of these functions in your HTML template files)
+

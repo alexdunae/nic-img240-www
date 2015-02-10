@@ -1,0 +1,133 @@
+---
+title: Week 6 "Personal Library" Assignment
+---
+.grid
+  .content
+    %h1 Week 6 "Personal Library" Assignment
+
+    %p
+      This week we'll be creating a "Personal Library" web app, where you can keep
+      track of things you've read or watched, and also things you'd like to read or
+      watch.
+
+    %p
+      = link_to 'Library: seeds.rb', 'https://gist.github.com/alexdunae/8136c4b01c9e6f996f52'
+      (save to <code>db/seeds.rb</code>)
+
+    %br
+    %br
+
+    %h3 Setting up the data
+
+    %ol
+      %li Create a new Rails app called <code>library</code>
+
+      %li Initialize a git repository (in the <code>library</code>) directory and commit all the files (a good commit message would be something like "Setup Rails project")
+
+      %li
+        Generate a model called <code>ItemType</code> with the following fields in its migration:
+        %ul
+          %li name (string)
+
+      %li Add a validation in the model to make sure that <code>name</code> is always present
+
+      %li
+        Generate a model called <code>Item</code> with the following fields in its migration:
+        %ul
+          %li item_type (references)
+          %li title (string)
+          %li image_url
+          %li completed_on (date), default should be <code>nil</code>
+
+      %li Add a validation in the model to make sure that <code>title</code> is always present
+
+      %li
+        Add a <code>completed?</code> instance method to the <code>Item</code> model (class).  It should return <code>true</code> if <code>completed_on</code> is NOT <code>nil</code>, and <code>false</code> otherwise.
+
+      %li
+        Add the associations to the files in the <code>app/models</code> directory (both <code>belongs_to</code> and <code>has_many</code>)
+        %ul
+          %li ItemType has many Items (don't forget to add the reverse assocation as well)
+
+      %li Add your files and commit with git (a good commit message would be something like "Added Item and ItemType models")
+
+      %li
+        Run the migrations
+        %br
+        (If you get messed up at this point you can clear everything in the database with <code>bin/rake db:drop db:create db:migrate</code>)
+
+      %li
+        Copy in seed data in <code>db/seeds.rb</code> (linked above) and load the seeds (<code>bin/rake db:seed</code>)
+
+      %li Add your files and commit with git (a good commit message would be something like "Added seed data")
+
+    %br
+    %h3 Setting up the <code>Items</code> controller and views
+    %ol
+      %li Generate a <code>Items</code> controller
+      %li Add the resource entry to your <code>routes.rb</code> file (also make the <code>root</code> route point to <code>items#index</code>)
+
+      %li Make an <code>index</code> method that retrieves the list of <code>Item</code> records
+      %li
+        Add an <code>index</code> view that displays:
+        %ul
+          %li each <code>Item</code> title, it's <code>item_type.name</code>, and whether it has been completed (use the <code>completed?</code> method)
+
+      %li Add your files and commit with git (a good commit message would be something like "Added Items controller and index view")
+
+    %br
+    %h3 Adding the forms to the <code>Items</code> controller
+
+
+    %ol
+      %li
+        Add the <code>new</code> and <code>edit</code> actions to the controller
+        –
+        see
+        = link_to 'this Github link for an example', 'https://github.com/alexdunae/img240-journal/blob/master/app/controllers/entries_controller.rb'
+
+
+      %li
+        Add the <code>new</code>, <code>edit</code> and <code>_form</code> views
+        –
+        see
+        = link_to 'this Github link for examples', 'https://github.com/alexdunae/img240-journal/tree/master/app/views/entries'
+
+      %li
+        Make sure your form allows editing of the following fields:
+        %ul
+          %li title (<code>text_field</code>)
+          %li item_type (<code>collection_select</code>)
+          %li completed_on (<code>date_select</code>)
+
+      %li
+        Add the <code>create</code>, <code>update</code> and <code>destroy</code> controller methods
+        –
+        see
+        = link_to 'this Github link for examples', 'https://github.com/alexdunae/img240-journal/blob/master/app/controllers/entries_controller.rb'
+
+      %li
+        Add a link on your index view to edit and destroy each entry
+        –
+        see
+        = link_to 'this Github link for examples', 'https://github.com/alexdunae/img240-journal/blob/master/app/views/entries/index.html.erb'
+
+
+    %br
+    %h3 Bonus: add a <code>mark_as_complete</code> route
+
+    %p We're not limited to just show/create/update/destroy – it's possible to add any other actions you need.
+
+    %p
+      If you want to try this bonus challenge, read about
+      = link_to 'Adding more RESTful actions on the Routing guides.', 'http://guides.rubyonrails.org/routing.html#adding-more-restful-actions'
+      You'll have to add the <code>mark_as_complete</code> route in your routes file and your controller, plus link to it from a view.
+
+
+    %br
+    %br
+
+    %h3 Submit your work
+    %p
+      When you are done, push your work to Github. Then email me a link to your repository on Github:
+      %a{href: 'mailto:alex@dunae.ca'} alex@dunae.ca
