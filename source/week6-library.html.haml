@@ -7,12 +7,23 @@ title: Week 6 "Personal Library" Assignment
 
     %p
       This week we'll be creating a "Personal Library" web app, where you can keep
-      track of things you've read or watched, and also things you'd like to read or
+      track of things you've read or watched, as well as things you'd like to read or
       watch.
+
+    %p
+      The app will just have one controller that will list items in your library. It will
+      allow users to add, modify and delete items from the library.
+
+    %p Even better, it will use Google Image search to grab an image for each item in the library.
+
 
     %p
       = link_to 'Library: seeds.rb', 'https://gist.github.com/alexdunae/8136c4b01c9e6f996f52'
       (save to <code>db/seeds.rb</code>)
+
+    %p
+      = link_to 'Library: image_fetcher.rb', 'https://gist.github.com/alexdunae/a1769ade1f49551caab2'
+      (save to <code>app/services/image_fetcher.rb</code>)
 
     %br
     %br
@@ -37,7 +48,7 @@ title: Week 6 "Personal Library" Assignment
           %li item_type (references)
           %li title (string)
           %li image_url
-          %li completed_on (date), default should be <code>nil</code>
+          %li completed_on (date), default should be <code>nil</code> - this is the date the item was read or watched
 
       %li Add a validation in the model to make sure that <code>title</code> is always present
 
@@ -71,13 +82,12 @@ title: Week 6 "Personal Library" Assignment
       %li
         Add an <code>index</code> view that displays:
         %ul
-          %li each <code>Item</code> title, it's <code>item_type.name</code>, and whether it has been completed (use the <code>completed?</code> method)
+          %li each <code>Item</code> title, its <code>item_type.name</code>, its image, and whether it has been "completed" (use the <code>completed?</code> method)
 
       %li Add your files and commit with git (a good commit message would be something like "Added Items controller and index view")
 
     %br
     %h3 Adding the forms to the <code>Items</code> controller
-
 
     %ol
       %li
@@ -85,7 +95,6 @@ title: Week 6 "Personal Library" Assignment
         –
         see
         = link_to 'this Github link for an example', 'https://github.com/alexdunae/img240-journal/blob/master/app/controllers/entries_controller.rb'
-
 
       %li
         Add the <code>new</code>, <code>edit</code> and <code>_form</code> views
@@ -112,8 +121,27 @@ title: Week 6 "Personal Library" Assignment
         see
         = link_to 'this Github link for examples', 'https://github.com/alexdunae/img240-journal/blob/master/app/views/entries/index.html.erb'
 
+      %li Add your files and commit with git (a good commit message would be something like "Added item editing views")
+
 
     %br
+
+    %h3 Time for images
+
+    %ol
+      %li
+        Copy
+        = link_to 'this ImageFetcher class', 'https://gist.github.com/alexdunae/a1769ade1f49551caab2'
+        into a new file, called <code>app/services/image_fetcher.rb</code>
+
+      %li
+        Modify your controller so it will fetch get an image URL for each item when it is saved (so after creating and updating).  There are lots of different ways to do this.  See if you can find one.
+
+
+      %li Add your files and commit with git (a good commit message would be something like "Wired up ImageFetcher")
+
+    %br
+
     %h3 Bonus: add a <code>mark_as_complete</code> route
 
     %p We're not limited to just show/create/update/destroy – it's possible to add any other actions you need.
