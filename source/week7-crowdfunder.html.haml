@@ -1,0 +1,138 @@
+---
+title: Week 7 "Crowdfunder" Assignment
+---
+.grid
+  .content
+    %h1 Week 7 "Crowdfunder" Assignment
+
+    %p
+      This week we'll be creating a crowd funding web app, like Kickstarter or Indiegogo.
+      Project creators will be able to add projects that they want people to support. Users
+      will be able to browse the projects, and make a pledge using a form.  Each funding level has a reward attached to it
+      (e.g. Fund a project for $10 and get a free t-shirt).
+
+
+    %p
+      = link_to 'Crowdfunder: seeds.rb', 'https://gist.github.com/alexdunae/6dd6599f2ff4f3fd58b5'
+      (save to <code>db/seeds.rb</code>)
+
+    %br
+    %br
+
+    %h2 Best practices
+
+    %ul
+      %li Don’t use <code>return</code>, <code>true</code> or <code>false</code> unless you need to.
+      %li Indent your code with two spaces. Make sure your indenting is appropriate. Don't have more than one blank line between blocks of code.
+      %li Commit in git regularly (after completing each feature is usually good) with informative commit messages.
+
+    %br
+    %br
+
+    %h2 The data
+
+    %h4 <code>Project</code> model
+
+    %ul
+      %li name (string, required, must be more than two letters long)
+      %li description (text, required)
+
+
+    %h4 <code>FundingLevel</code> model
+
+    %ul
+      %li project (references, required)
+      %li reward_name (string, required, must be more than two letters long)
+      %li amount (integer, required, must be more than 0)
+
+
+    %h4 <code>Pledge</code> model
+
+    %ul
+      %li project (references, required)
+      %li name (string, required)
+      %li email (email, required)
+      %li amount (integer, required, must be more than 0)
+
+
+    %h4 The relationships
+
+    %p Project has many Funding Levels and has many Pledges. (Don't forget to put the reverse <code>belongs_to</code> as well).
+
+    %br
+    %br
+
+    %h2 Routes, controllers and views
+
+    %p We are going to have three controllers: ProjectsController, FundingLevelsController and PledgesController.
+
+    %p FundingLevelsController and PledgesController should be nested under the ProjectsController.  You should have URLs like <code>/projects/1/pledges/new</code> when you're done.
+
+    %p Use <code>only:</code> for each route/resource declaration to limit the routes to the actions you need.   Use <code>bin/rake routes</code> to see what routes you have created.
+
+    %br
+
+    %p Add some code to your <code>app/views/layouts/application.html.erb</code> to print out any flash messages.
+
+    %h4 <code>Projects#index</code>
+
+    %ul
+      %li link to each project's page with the most recently created on top
+      %li link to create a new project
+
+
+    %h4 <code>Projects#new</code> and <code>Projects#create</code>
+
+    %ul
+      %li Add a form that lets users add projects. The form should display any validation errors that occur. The form code should be in a partial.
+      %li Redirect back to <code>Projects#index</code> on success (include a flash notice).
+
+
+    %h4 <code>Projects#show</code>
+
+    %ul
+      %li show the project's name and description
+      %li list each of the project's funding levels (from cheapest to most expensive) plus a link to add a new funding level
+      %li list each of the project's pledges (sorted most recent to older) plus a link to add a new pledge
+
+
+    %h4 <code>FundingLevels#new</code> and <code>FundingLevels#create</code>
+
+    %ul
+      %li Add a form that lets users add new funding levels. Make sure the funding level that's created is associated with the proper project. The form should display any validation errors that occur. Redirect back to the <code>Projects#show</code> on success (include a flash notice). The form code should be in a partial.
+
+
+    %h4 <code>Pledges#new</code> and <code>Pledges#create</code>
+
+    %ul
+      %li Add a form that lets users add new pledge levels. Make sure the pledge that's created is associated with the proper project. The form should display any validation errors that occur. Redirect back to the <code>Pledges#show</code> on success (include a flash notice). The form code should be in a partial.
+
+
+    %h4 <code>Projects#show</code>, part 2
+
+    %ul
+      %li Include the "new pledge" on the <code>Projects#show</code> page, so users can enter their pledge without needing to click the "new" link.
+
+
+    %h4 <code>Projects#show</code>, part 3
+
+    %ul
+      %li When listing users that have already made a pledge, also show what funding level reward they will get. So if there is a $100 funding level and a $200 funding level, a user that pledges $150 will be at the first funding level.
+
+
+    %h4 Optional
+
+    %p Tired of all this unstyled HTML?  Feel free to add some of these pre-written CSS frameworks (or others that you like).
+
+    %ul
+      %li= link_to 'Skeleton', 'http://getskeleton.com/'
+      %li= link_to 'Pure.css', 'http://purecss.io/'
+
+
+    %br
+    %br
+
+    %h3 Submit your work
+    %p
+      When you are done, push your work to Github. Then email me a link to your repository on Github:
+      %a{href: 'mailto:alex@dunae.ca'} alex@dunae.ca
