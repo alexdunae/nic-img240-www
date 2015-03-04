@@ -18,9 +18,10 @@ end
 
 activate :deploy do |deploy|
   deploy.build_before = true
-  deploy.method = :rsync
+  deploy.method = :sftp
   deploy.host = 'adunae.imgd.ca'
   deploy.path = 'public_html'
   deploy.user = 'adunae'
+  deploy.password = ENV['PASSWORD']
   deploy.clean = false
 end
