@@ -1,0 +1,74 @@
+---
+title: Week 9 "Authentic" Assignment
+---
+.grid
+  .content
+    %h1 Week 9 "Authentic" Assignment
+
+    %p
+      This week you’re going to create a web app that users can sign in to.
+
+    %br
+    %br
+
+    %h2 Code quality – I’ll be watching for these...
+
+    %ul
+      %li Don’t use <code>return</code>, <code>true</code> or <code>false</code> unless you need to.
+      %li Indent your code with two spaces. Make sure your indenting is appropriate. Don't have more than one blank line between blocks of code. (Get in touch if you need help configuring your text editor. This should be mostly automatic.)
+      %li Commit in git regularly (after completing each feature is usually good) with informative commit messages.
+      %li Add validations where they would be needed.
+      %li Use <code>before_action</code> to cut down on duplicate code in controllers.
+
+    %br
+    %br
+
+    %h2 Your assignment
+
+    %ul
+      %li
+        Create a <code>Pages</code> controller with a <code>home</code> method and view
+        %ul
+          %li This should be your <code>root</code> route
+      %li
+        Allow users to sign up and sign in to your web app
+        %ul
+          %li users should have name, email, password, admin (boolean field), and last_signed_in_at (datetime)
+          %li when they create an account they should automatically be signed
+          %li after successful sign in, record the current time in the user's <code>last_signed_in_at</code> field and redirect to the homepage (you can get the current time in Ruby with <code>Time.now</code>)
+          %li if there is a sign in error (e.g. wrong password), show an error message using the flash
+      %li
+        Put some navigation links in your <code>layouts/application.html.erb</code>
+        %ul
+          %li When a user is signed in, show a sign out link and a link to edit their profile
+          %li When a user is not signed in, show a sign in link
+          %li When an admin user is signed in in, show a link to <code>Users#index</code> page
+      %li
+        Let users change their name, email or password once they are signed in (don't let anyone else change their info!)
+      %li
+        Create a <code>Users#index</code> page that lists each user account
+        %ul
+          %li Only let admin users see this page
+          %li Each user should have a "delete" link
+          %li Only let admins delete users (enforce this in the controller)
+
+    %br
+    %br
+
+
+    %h2 Add some styles
+
+    %p Add some styling. You can write it by hand or use something from a CSS framework.
+
+    %ul
+      %li= link_to 'Skeleton', 'http://getskeleton.com/'
+      %li= link_to 'Pure.css', 'http://purecss.io/'
+
+
+    %br
+    %br
+
+    %h2 Submit your work
+    %p
+      When you are done, push your work to Github. Then email me a link to your repository on Github:
+      %a{href: 'mailto:alex@dunae.ca'} alex@dunae.ca
