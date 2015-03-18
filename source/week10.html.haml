@@ -1,0 +1,60 @@
+---
+title: Week 10
+---
+.grid
+  .content
+    %h1 Week 10 - Deploying.
+
+    %br
+    %br
+
+    %h3 Getting ready for Heroku
+
+    %ol
+      %li= link_to 'Sign up for a Heroku account', 'https://www.heroku.com/'
+      %li
+        = link_to 'Make sure your VM is up to date', '/vm.html'
+        you should <code>vagrant halt</code> before you run <code>vagrant up --provision</code>
+      %li
+        Read through
+        = link_to 'getting started with Ruby on Heroku', 'https://devcenter.heroku.com/articles/getting-started-with-ruby#introduction'
+
+    %br
+    %br
+
+    %h3 In class demo project
+
+    %p= link_to 'Fork it here', 'https://github.com/alexdunae/img240-markov'
+
+    %br
+    %br
+
+    %h3 Deploying to Heroku
+
+    %ol
+      %li Make sure you are already in your project directory and that all your changes have been committed – Heroku deploys your <em>last commit</em>.
+      %li Type <code>heroku create</code> to setup a new Heroku site (just have to do this once)
+      %li Type <code>git push heroku master</code> any time you want to deploy
+
+    %p To check your Heroku logs: <code>heroku logs --tail</code> (press Ctrl+C when you're done)
+
+    %br
+    %br
+
+    %h3 Writing a README file
+
+    %ul
+      %li= link_to 'Markdown syntax', 'https://help.github.com/articles/markdown-basics/'
+
+    %br
+    %br
+
+    %h3 Homework: your project
+
+    %p By next Tuesday evening, please submit the beginnings of a plan for your final project. Some things that I want to discuss with you before you do any coding are:
+
+    %ul
+      %li Drawings of each of the screens of your web app – these can be really rough – we will use these to spec the functionality you’ll be building
+      %li Your database structure – what tables you’ll have, what fields, and how they will be related
+
+    %p You don’t have to submit everything, but you do have to submit something. If in doubt, ask. I can guarantee responses if you email my by Sunday night. Any later and I may not have time.
