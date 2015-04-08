@@ -14,14 +14,15 @@ configure :build do
   activate :minify_css
   activate :minify_javascript
   activate :asset_hash
+  set :http_prefix, '/imgd240'
 end
 
 activate :deploy do |deploy|
   deploy.build_before = true
-  deploy.method = :sftp
-  deploy.host = 'adunae.imgd.ca'
-  deploy.path = 'public_html'
-  deploy.user = 'adunae'
-  deploy.password = ENV['PASSWORD']
+  deploy.method = :rsync
+  deploy.host = 'dunae.ca'
+  deploy.path = 'dunae.ca/imgd240'
+  deploy.user = 'alexdunae'
+  # deploy.password = ENV['PASSWORD']
   deploy.clean = false
 end
